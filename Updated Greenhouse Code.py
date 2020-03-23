@@ -34,7 +34,7 @@ def write_string_instead_of_0(U_arrays, text_i_will_add_instead):
 
 sheet_name_power_plant_district = ['Antalya_Merkez', 'Serik', 'Kaş']
 # r means reading, and don't forget writing file extention(xlsx) and adding a point in front of it.
-read_excel_data = pd.read_excel(r'power_plant_power_calculation.xlsx', sheet_name=sheet_name_power_plant_district[0])
+read_excel_data = pd.read_excel(r'power_plant_power_calculation.xlsx', sheet_name=sheet_name_power_plant_district[2])
 # read_excel_data reads from power_plant_power_calculation.xlsx
 # sheet_name=sheet_name_power_plant_district[0] => it is reading values from sheet 0(Antalya_Merkez). Change it to have
 # Q values for different districts.
@@ -102,13 +102,13 @@ Qgreenhouse_double_layer_poly_vinyl_chloride_cover = write_string_instead_of_0(Q
 # Qsera = ((Aortu / Ataban) * U * (Tic - Tdis) - I * T * 0.9352) * Ataban;
 print(Qgreenhouse_single_layer_poly_ethylene_cover)
 
-workbook_calculated_Q_values = xlsxwriter.Workbook('power_plant_power_calculated_Q_values.xlsx')
+workbook_calculated_Q_values = xlsxwriter.Workbook('power_plant_power_calculated_Q_values_Kaş.xlsx')
 
 worksheet = workbook_calculated_Q_values.add_worksheet()
 
 for counter in range(len(outside_temperature_array)):
-        if outside_temperature_array[counter] > 27:
-		   worksheet.write(counter, 9, "Aktif havalandırma yapılmalıdır.")
+    if outside_temperature_array[counter] > 27:
+        worksheet.write(counter, 9, 'Aktif havalandırma yapılmalıdır.')
 
 for u_name_counter in range(1, 9):
     worksheet.write(0, u_name_counter, cover_material_name[u_name_counter])

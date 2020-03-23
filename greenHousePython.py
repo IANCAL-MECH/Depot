@@ -26,10 +26,19 @@ def Qserum_list(u_counter, months_counter, light_transmittence_index, u_variable
     return calculated_Q_value
 
 
+def find_index_temperature_bigger_than_27(outside_temperature_array):
+    index_bigger_than_27 = []
+    for counter_in_array in range(len(outside_temperature_array)):
+        if outside_temperature_array[counter_in_array] >= 27:
+            index_bigger_than_27.append(counter_in_array)
+
+    return index_bigger_than_27
+
 def write_string_intead_of_0(U_arrays, what_you_wanna_write):
     for counter_in_array in range(len(U_arrays)):
         if U_arrays[counter_in_array] == 0:
             U_arrays[counter_in_array] = what_you_wanna_write
+
     return U_arrays
 
 
@@ -100,7 +109,7 @@ Qserum_poli_vinyl_colitare_double = write_string_intead_of_0(Qserum_poli_vinyl_c
                                                              "ne yazılacaktı unuttum ya")
 
 # Qsera = ((Aortu / Ataban) * U * (Tic - Tdis) - I * T * 0.9352) * Ataban;
-print(Qserum_single_layer_cover)
+#print(find_index_temperature_bigger_than_27())
 
 workbook_calculated_Q_values = xlsxwriter.Workbook('power_plant_power_calculated_Q_values.xlsx')
 
