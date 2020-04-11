@@ -39,7 +39,7 @@ def write_string_instead_of_0(U_arrays, text_i_will_add_instead):
 
 sheet_name_power_plant_district = ['Antalya_Merkez', 'Serik', 'Kaş']
 # r means reading, and don't forget writing file extention(xlsx) and adding a point in front of it.
-read_excel_data = pd.read_excel(r'power_plant_power_calculation.xlsx', sheet_name=sheet_name_power_plant_district[2])
+read_excel_data = pd.read_excel(r'power_plant_power_calculation.xlsx', sheet_name=sheet_name_power_plant_district[0])
 # read_excel_data reads from power_plant_power_calculation.xlsx
 # sheet_name=sheet_name_power_plant_district[0] => it is reading values from sheet 0(Antalya_Merkez). Change it to have
 # Q values for different districts.
@@ -126,7 +126,7 @@ Qgreenhouse_double_layer_poly_vinyl_chloride_cover = write_string_instead_of_0(
 # Qsera = ((Aortu / Ataban) * U * (Tic - Tdis) - I * T * 0.9352) * Ataban;
 print(Qgreenhouse_single_layer_poly_ethylene_cover)
 
-workbook_calculated_Q_values = xlsxwriter.Workbook('power_plant_power_calculated_Q_values_Kaş.xlsx')
+workbook_calculated_Q_values = xlsxwriter.Workbook('power_plant_power_calculated_Q_values_Antalya_Merkez.xlsx')
 
 worksheet = workbook_calculated_Q_values.add_worksheet()
 
